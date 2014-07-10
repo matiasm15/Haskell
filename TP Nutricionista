@@ -51,9 +51,9 @@ estado (_, edad, _, (peso, altura, _), _, _, _) | edad > 24 = darEstado(round(im
                                                 | otherwise = "error"
 
 darEstado imc | imc < 20 = "bajo peso"
-			        | (20 <= imc) && (imc < 25) = "peso normal"
-		      	  | (25 >= imc) && (imc < 30) = "sobrepeso"
-		      	  | otherwise = "obesidad"
+	      | (20 <= imc) && (imc < 25) = "peso normal"
+	      | (25 >= imc) && (imc < 30) = "sobrepeso"
+	      | otherwise = "obesidad"
 
 --6)
 personasEnEstado :: [Char] -> [Persona] -> [Nombre]

@@ -69,7 +69,7 @@ recibieron7oMas = equiposQueCumplenTalCondicion (recibioMasDe 7)
 recibioMasDe cantidad equipo = any (>= cantidad) (map (darGolesRecibidos equipo) (partidosJugadosPorUnEquipo equipo))
 
 darGolesRecibidos equipo (_, _, primerEquipo, primerGoles, segundoEquipo, segundoGoles) | (equipo == primerEquipo) = segundoGoles
-																						| (equipo == segundoEquipo) = primerGoles
+                                                                                        | (equipo == segundoEquipo) = primerGoles
 
 --c)
 jugaronElMundialDel78 :: [Equipo]

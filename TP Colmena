@@ -1,8 +1,8 @@
 type TipoColmena = ([Char], [([Char], Integer)], [([Char], Integer)])
 
 colmenas = [("colmena1", [("obrera",1100),("zangano",9)],[("miel",6),("propoleo",6)]),
-	("colmena2", [("reina",1),("zangano",22),("obrera",800),("otros",30)],[("miel",6),("polen",4)]),
-	("colmena3", [("reina",1),("obrera",1200),("zangano",10)],[("nectar",8),("polen",4)])]
+            ("colmena2", [("reina",1),("zangano",22),("obrera",800),("otros",30)],[("miel",6),("polen",4)]),
+            ("colmena3", [("reina",1),("obrera",1200),("zangano",10)],[("nectar",8),("polen",4)])]
 
 productos = ["miel", "polen", "propoleo", "nectar"]
 

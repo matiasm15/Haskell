@@ -29,7 +29,7 @@ darFecha (fecha, _, _, _, _, _) = fecha
 --1)
 --a)
 loGano :: Equipo -> Partido -> Bool
-loGano equipoComparado partido = equipoComparado == darGanador partido
+loGano equipo partido = (elem equipo listaEquipos) && (equipo == darGanador partido)
 
 darGanador (_, _, primerEquipo, primerGoles, segundoEquipo, segundoGoles) | (primerGoles > segundoGoles) = primerEquipo
                                                                           | (segundoGoles > primerGoles) = segundoEquipo

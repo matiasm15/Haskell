@@ -42,7 +42,7 @@ darNombreVehiculo (nombreVehiculo, _) = nombreVehiculo
 
 eliminarRepetidos [] = []
 eliminarRepetidos (x:xs) | elem x xs = eliminarRepetidos xs
-						 | otherwise = x:(eliminarRepetidos xs)
+                         | otherwise = x:(eliminarRepetidos xs)
 
 --b)
 cantidadPorTipoQueCumplan :: (TipoVehiculo -> Bool) -> [TipoVehiculo] -> [([Char], Int)]

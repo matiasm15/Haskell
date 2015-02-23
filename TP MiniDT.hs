@@ -8,19 +8,19 @@ type MinutosJugados = Integer
 type Evaluacion = (Jugador, Puntaje, MinutosJugados)
 type Fecha = [Evaluacion]
 
-participantes = [	("Natalia", ["Abbondazieri","Lluy","Battaglia", "Lazzaro"]),
-					("Romina", ["Islas", "Lluy", "Battaglia", "Lazzaro"]),
-					("Jessica", ["Islas"])
-				]
+participantes = [   ("Natalia", ["Abbondazieri","Lluy","Battaglia", "Lazzaro"]),
+                    ("Romina", ["Islas", "Lluy", "Battaglia", "Lazzaro"]),
+                    ("Jessica", ["Islas"])
+                ]
 
 clubes = ["Boca", "Racing", "Tigre"]
 
-jugadores = [	("Abbondazieri", "Boca", "Arquero", 6500000),
-				("Islas", "Tigre", "Arquero", 5500000),
-				("Lluy", "Racing", "Defensor", 1800000),
-				("Battaglia", "Boca", "Volante", 8000000),
-				("Lazzaro", "Tigre", "Delantero", 5200000)
-			]
+jugadores = [   ("Abbondazieri", "Boca", "Arquero", 6500000),
+                ("Islas", "Tigre", "Arquero", 5500000),
+                ("Lluy", "Racing", "Defensor", 1800000),
+                ("Battaglia", "Boca", "Volante", 8000000),
+                ("Lazzaro", "Tigre", "Delantero", 5200000)
+            ]
 
 darJugador (jugador, _, _, _) = jugador
 darClub (_, club, _, _) = club
@@ -81,7 +81,7 @@ minutosFechaJugador :: Fecha -> Jugador -> Integer
 minutosFechaJugador fecha jugador = aplicarFecha darMinutosJugados jugador fecha
 
 aplicarFecha funcion jugador fecha | jugoFechaJugador fecha jugador = funcion (evaluacionFechaJugador jugador fecha)
-								   | otherwise = 0
+                                   | otherwise = 0
 
 evaluacionFechaJugador jugador fecha = head (filter (coincideJugadorFecha jugador) fecha)
 
@@ -106,7 +106,7 @@ aplicarCriterio criterio jugador = (jugador, criterio jugador)
 
 maximo [] = ("", 0)
 maximo (x:xs) | snd x > snd (maximo xs) = x
-			  | otherwise = maximo xs
+              | otherwise = maximo xs
 
 -- mejorJugadorPor totalPuntosJugador
 -- "Lazzaro"

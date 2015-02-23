@@ -17,7 +17,7 @@ eliminarRepetidos (x:xs) | elem x xs = eliminarRepetidos xs
 factores numero = [factor | factor <- [1..numero], esDivisor numero factor]
 
 factores2 numero = lFactoresHastaRaiz ++ map (div numero) lFactoresHastaRaiz
-	where lFactoresHastaRaiz = factoresHastaRaiz numero
+    where lFactoresHastaRaiz = factoresHastaRaiz numero
 
 factoresHastaRaiz numero = [factor | factor <- [1..((floor.sqrt) numero)], (mod numero factor == 0)]
 
@@ -34,4 +34,4 @@ ejercicio3 limite = last (filter esPrimo (factores limite))
 
 --448)
 ejercicio448 numero = sum(map funcionA [1..numero])
-	where funcionA numero = div (sum(map (lcm numero) [1..numero])) numero
+    where funcionA numero = div (sum(map (lcm numero) [1..numero])) numero

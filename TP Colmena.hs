@@ -49,7 +49,7 @@ tieneSuficientesZanganos cantidad (nombreProducto, cantidadProducto) = (nombrePr
 --6)
 enjambrar :: Integer -> [Colmena]
 enjambrar cantidad = (map (verificarColmenas nuevasColmenas) colmenas) ++ (map modificarNuevaColmena nuevasColmenas)
-	where nuevasColmenas = map nuevaColmena (colmenasConPoblacionAceptable cantidad (filter tieneReina colmenas))
+    where nuevasColmenas = map nuevaColmena (colmenasConPoblacionAceptable cantidad (filter tieneReina colmenas))
 
 nuevaColmena (nombreViejaColmena, viejaPoblacion, viejosProductos) = (nombreViejaColmena, map (nuevaCantidad 2) viejaPoblacion, map (nuevaCantidad 4) viejosProductos)
 

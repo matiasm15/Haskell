@@ -1,11 +1,11 @@
 type TipoArbolito = ([Char], Double, Double, Double)
 
-misArboles =	[("jacaranda", 6.0, 1.0, 1.4),
-				("pino", 5.0, 3.0, 1.9),
-				("eucalipto", 5.0, 4.0, 0.7),	
-				("jacaranda", 10.0, 2.0, 1.0),	
-				("cerezo", 7.0, 11.0, 0.9),	
-				("ombu", 8.0, 10.0, 2.1)]
+misArboles =    [("jacaranda", 6.0, 1.0, 1.4),
+                ("pino", 5.0, 3.0, 1.9),
+                ("eucalipto", 5.0, 4.0, 0.7),   
+                ("jacaranda", 10.0, 2.0, 1.0),  
+                ("cerezo", 7.0, 11.0, 0.9), 
+                ("ombu", 8.0, 10.0, 2.1)]
 
 --a)
 nombresFrondosos :: [TipoArbolito] -> [[Char]]
@@ -13,9 +13,9 @@ nombresFrondosos arboles = map darNombre (arbolesFrondosos arboles)
 
 arbolesFrondosos arboles = filter tieneLaAlturaNecesaria arboles
 
-tieneLaAlturaNecesaria (_, altura, ancho, _) =	altura >= 6 && 
-												altura <= 15 &&
-												ancho > altura
+tieneLaAlturaNecesaria (_, altura, ancho, _) =  altura >= 6 && 
+                                                altura <= 15 &&
+                                                ancho > altura
 
 darNombre (nombre, _, _, _) = nombre
 
@@ -31,8 +31,8 @@ lluvia milimetros (nombre, altura, ancho, vitalidad) = (nombre, altura + 1, anch
 
 temperatura :: Double -> TipoArbolito -> TipoArbolito
 temperatura grados (nombre, altura, ancho, vitalidad) | (grados < 0) = (nombre, altura, ancho, vitalidad * 0.5)
-													  | (grados > 40) = (nombre, altura, ancho, vitalidad * 0.6)
-													  | otherwise = (nombre, altura, ancho, vitalidad)
+                                                      | (grados > 40) = (nombre, altura, ancho, vitalidad * 0.6)
+                                                      | otherwise = (nombre, altura, ancho, vitalidad)
 
 granizo :: TipoArbolito -> TipoArbolito
 granizo (nombre, altura, ancho, vitalidad) = (nombre, altura / 2, ancho / 2, vitalidad)
@@ -77,20 +77,20 @@ cerezo = ("cerezo", 2.5, 0.4)
 
 caracteristicasNormales = [pino, ombu, eucalipto, jacaranda, cerezo]
 
-laVerde =	[("jacaranda", 6.0, 1.0, 1.4),
-			("pino", 5.0, 3.0, 1.9),
-			("eucalipto", 5.0, 4.0, 0.7),
-			("jacaranda", 10.0, 2.0, 1.0),
-			("cerezo", 7.0, 11.0, 0.9),
-			("ombu", 8.0, 10.0, 2.1)]
+laVerde =   [("jacaranda", 6.0, 1.0, 1.4),
+            ("pino", 5.0, 3.0, 1.9),
+            ("eucalipto", 5.0, 4.0, 0.7),
+            ("jacaranda", 10.0, 2.0, 1.0),
+            ("cerezo", 7.0, 11.0, 0.9),
+            ("ombu", 8.0, 10.0, 2.1)]
 
-campoLibre =	[("pino", 5.0, 1.0, 1.2),
-				("pino", 6.0, 0.8, 1.8),
-				("pino", 5.0, 1.1, 1.2),
-				("pino", 5.0, 1.5, 1.1),
-				("pino", 5.0, 0.9, 0.9),
-				("pino", 6.0, 1.1, 1.2),
-				("pino", 5.0, 1.6, 1.0)]
+campoLibre =    [("pino", 5.0, 1.0, 1.2),
+                ("pino", 6.0, 0.8, 1.8),
+                ("pino", 5.0, 1.1, 1.2),
+                ("pino", 5.0, 1.5, 1.1),
+                ("pino", 5.0, 0.9, 0.9),
+                ("pino", 6.0, 1.1, 1.2),
+                ("pino", 5.0, 1.6, 1.0)]
 
 --a)
 sePuedeTransplantar :: TipoArbolito -> [Char] -> Bool

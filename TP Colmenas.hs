@@ -1,8 +1,8 @@
 type Colmena = ([Char], [([Char], Integer)], [([Char], Integer)])
 
-colmenas =	[("colmena1", [("obrera",1100),("zangano",9)],[("miel",6),("propoleo",6)]),
-			("colmena2", [("reina",1),("zangano",22),("obrera",800),("otros",30)],[("miel",6),("polen",4)]),
-			("colmena3", [("reina",1),("obrera",1200),("zangano",10)],[("nectar",8),("polen",4)])]
+colmenas =  [("colmena1", [("obrera",1100),("zangano",9)],[("miel",6),("propoleo",6)]),
+            ("colmena2", [("reina",1),("zangano",22),("obrera",800),("otros",30)],[("miel",6),("polen",4)]),
+            ("colmena3", [("reina",1),("obrera",1200),("zangano",10)],[("nectar",8),("polen",4)])]
 
 productos = ["miel", "polen", "propoleo", "nectar"]
 
@@ -49,14 +49,14 @@ tieneSuficientesZanganos cantidad (nombreProducto, cantidadProducto) = (nombrePr
 --6)
 enjambrar :: Integer -> [Colmena]
 enjambrar cantidad = (map (verificarColmenas nuevasColmenas) colmenas) ++ (map modificarNuevaColmena nuevasColmenas)
-	where nuevasColmenas = map nuevaColmena (colmenasConPoblacionAceptable cantidad (filter tieneReina colmenas))
+    where nuevasColmenas = map nuevaColmena (colmenasConPoblacionAceptable cantidad (filter tieneReina colmenas))
 
 nuevaColmena (nombreViejaColmena, viejaPoblacion, viejosProductos) = (nombreViejaColmena, map (nuevaCantidad 2) viejaPoblacion, map (nuevaCantidad 4) viejosProductos)
 
 nuevaCantidad factor (nombreViejo, cantidadVieja) = (nombreViejo, div cantidadVieja factor)
 
 verificarColmenas nuevasColmenas (viejoNombre, viejaPoblacion, viejosProductos) | (any (tieneTalNombre viejoNombre) nuevasColmenas) = modificarColmenas (buscarColmenaPorNombreEnLista viejoNombre nuevasColmenas) viejaPoblacion viejosProductos
-																				| otherwise = (viejoNombre, viejaPoblacion, viejosProductos)
+                                                                                | otherwise = (viejoNombre, viejaPoblacion, viejosProductos)
 
 modificarColmenas (nuevoNombre, nuevosPoblacion, nuevosProductos) viejaPoblacion viejosProductos = (nuevoNombre, modificarAmbasListas viejaPoblacion nuevosPoblacion, modificarAmbasListas viejosProductos nuevosProductos)
 
@@ -65,12 +65,12 @@ modificarAmbasListas viejaLista nuevaLista = map (modificarUnaLista nuevaLista) 
 modificarUnaLista nuevaLista (viejoPrimero, viejoSegundo) = modificarValor (filter ((== viejoPrimero) . fst) nuevaLista) (viejoPrimero, viejoSegundo)
 
 modificarValor nuevaLista (viejoPrimero, viejoSegundo)  | null nuevaLista = (viejoPrimero, viejoSegundo)
-														| otherwise = (viejoPrimero, viejoSegundo - snd(head(nuevaLista)))
+                                                        | otherwise = (viejoPrimero, viejoSegundo - snd(head(nuevaLista)))
 
 modificarNuevaColmena (nombreColmena, poblacion, productos) = (nombreColmena ++ "b", map modificarClaseSocial poblacion, productos)
 
 modificarClaseSocial (nombreClaseSocial, cantidadVieja) | (nombreClaseSocial == "reina") = (nombreClaseSocial, cantidadVieja + 1)
-													    | (nombreClaseSocial == "obrera") = (nombreClaseSocial, cantidadVieja - 1)
-													    | otherwise = (nombreClaseSocial, cantidadVieja)
+                                                        | (nombreClaseSocial == "obrera") = (nombreClaseSocial, cantidadVieja - 1)
+                                                        | otherwise = (nombreClaseSocial, cantidadVieja)
 
 --7)

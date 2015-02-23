@@ -10,12 +10,12 @@ listaEquipos = ["Uruguay", "Italia", "Argentina", "Brasil", "Hungria", "Alemania
 
 listaPartidos :: [Partido]
 listaPartidos = [(1954, "Primera Ronda", "Hungria", 9, "Corea del Sur", 0),
-                 (1954, "Primera Ronda", "Hungria", 8, "Alemania", 3),
-                 (1994, "Final", "Italia", 0, "Brasil", 0),
-                 (1978, "Final", "Argentina", 3, "Holanda", 1),
-                 (2014, "Semifinal", "Alemania", 7, "Brasil", 1),
-                 (2014, "Final", "Argentina", 2, "Alemania", 0)
-                ]
+				 (1954, "Primera Ronda", "Hungria", 8, "Alemania", 3),
+				 (1994, "Final", "Italia", 0, "Brasil", 0),
+				 (1978, "Final", "Argentina", 3, "Holanda", 1),
+				 (2014, "Semifinal", "Alemania", 7, "Brasil", 1),
+				 (2014, "Final", "Argentina", 2, "Alemania", 0)
+				]
 
 equiposQueCumplenTalCondicion :: (Equipo -> Bool) -> [Equipo]
 equiposQueCumplenTalCondicion condicion = filter condicion listaEquipos
@@ -32,8 +32,8 @@ loGano :: Equipo -> Partido -> Bool
 loGano equipo partido = (elem equipo listaEquipos) && (equipo == darGanador partido)
 
 darGanador (_, _, primerEquipo, primerGoles, segundoEquipo, segundoGoles) | (primerGoles > segundoGoles) = primerEquipo
-                                                                          | (segundoGoles > primerGoles) = segundoEquipo
-                                                                          | otherwise = "Empate" 
+																		  | (segundoGoles > primerGoles) = segundoEquipo
+																		  | otherwise = "Empate" 
 
 --b)
 loJugo :: Equipo -> Partido -> Bool
@@ -69,7 +69,7 @@ recibieron7oMas = equiposQueCumplenTalCondicion (recibioMasDe 7)
 recibioMasDe cantidad equipo = any (>= cantidad) (map (darGolesRecibidos equipo) (partidosJugadosPorUnEquipo equipo))
 
 darGolesRecibidos equipo (_, _, primerEquipo, primerGoles, segundoEquipo, segundoGoles) | (equipo == primerEquipo) = segundoGoles
-                                                                                        | (equipo == segundoEquipo) = primerGoles
+																						| (equipo == segundoEquipo) = primerGoles
 
 --c)
 jugaronElMundialDel78 :: [Equipo]

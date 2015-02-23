@@ -12,11 +12,11 @@ type Ocupacion = [Char]
 
 personasDeEjemplo :: [Persona]
 personasDeEjemplo = [("Mariano", 20, 'M', (68.0, 169.0, "Mediana"), [], ["basket"], ["estudiante"]),
-                     ("Leandro", 12, 'M', (38.0, 123.0, "Mediana"), ["alergias"], ["futbol", "skate", "taekwondo"], ["estudiante"]),
-                     ("Gisella", 30, 'F', (59.0, 162.0, "Pequeña"), [], ["pilates"], ["ama de casa", "maestra"]),
-                     ("Mara", 42, 'F', (88.0, 195.0, "Grande"), ["diabetes", "alergias"], [],["abogada", "profesora"]),
-                     ("Osvaldo", 25, 'M', (98.0, 165.0, "Grande"), [], [], ["empleado"])
-                    ]
+					("Leandro", 12, 'M', (38.0, 123.0, "Mediana"), ["alergias"], ["futbol", "skate", "taekwondo"], ["estudiante"]),
+					("Gisella", 30, 'F', (59.0, 162.0, "Pequeña"), [], ["pilates"], ["ama de casa", "maestra"]),
+					("Mara", 42, 'F', (88.0, 195.0, "Grande"), ["diabetes", "alergias"], [],["abogada", "profesora"]),
+					("Osvaldo", 25, 'M', (98.0, 165.0, "Grande"), [], [], ["empleado"])
+					]
 
 caloriasPorTarea :: [([Char], Int)]
 caloriasPorTarea = [("basket",1100), ("futbol",1100), ("skate",800), ("maestra", 320), ("estudiante", 220), ("empleado", 480)]
@@ -48,12 +48,12 @@ imcDadoPesoYAltura peso altura = 10000 * peso / (altura * altura)
 --5)
 estado :: Persona -> [Char]
 estado (_, edad, _, (peso, altura, _), _, _, _) | edad > 24 = darEstado(round(imcDadoPesoYAltura peso altura) - (div (edad - 25) 10))
-                                                | otherwise = "error"
+												| otherwise = "error"
 
 darEstado imc | imc < 20 = "bajo peso"
-	      | (20 <= imc) && (imc < 25) = "peso normal"
-	      | (25 >= imc) && (imc < 30) = "sobrepeso"
-	      | otherwise = "obesidad"
+			  | (20 <= imc) && (imc < 25) = "peso normal"
+			  | (25 >= imc) && (imc < 30) = "sobrepeso"
+			  | otherwise = "obesidad"
 
 --6)
 personasEnEstado :: [Char] -> [Persona] -> [Nombre]
